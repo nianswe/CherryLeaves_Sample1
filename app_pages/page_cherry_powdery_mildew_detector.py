@@ -10,20 +10,20 @@ from src.machine_learning.predictive_analysis import (
                                                     plot_predictions_probabilities
                                                     )
 
-def page_malaria_detector_body():
+def page_cherry_powdery_mildew_detector():
     st.info(
-        f"* The client is interested in telling whether a given cell contains a malaria parasite "
-        f"or not."
+        f"* •	The client is interested in conducting a study to visually differentiate a cherry leaf"
+        f" that is healthy from one that contains powdery mildew. "
         )
 
     st.write(
-        f"* You can download a set of parasitised and uninfected cells for live prediction. "
-        f"You can download the images from [here](https://www.kaggle.com/codeinstitute/cell-images-test)."
+        f"* You can download a set of powdery mildew infected and healthyimages for live prediction. "
+        f"You can download the images from [here](https://www.kaggle.com/codeinstitute/cherry-leaves)."
         )
 
     st.write("---")
 
-    images_buffer = st.file_uploader('Upload blood smear samples. You may select more than one.',
+    images_buffer = st.file_uploader('Upload cherry leaves samples. You may select more than one.',
                                         type='png',accept_multiple_files=True)
    
     if images_buffer is not None:
@@ -31,7 +31,7 @@ def page_malaria_detector_body():
         for image in images_buffer:
 
             img_pil = (Image.open(image))
-            st.info(f"Blood Smear Sample: **{image.name}**")
+            st.info(f"cherry leaves sample: **{image.name}**")
             img_array = np.array(img_pil)
             st.image(img_pil, caption=f"Image Size: {img_array.shape[1]}px width x {img_array.shape[0]}px height")
 

@@ -9,28 +9,28 @@ from matplotlib.image import imread
 import itertools
 import random
 
-def page_cells_visualizer_body():
-    st.write("### Cells Visualizer")
+def page_leaves_visualizer_body():
+    st.write("### Cherry Leaves Visualizer")
     st.info(
-        f"* The client is interested in having a study that visually "
-        f"differentiates a parasitised from an uninfected cell.")
+        f"* •	The client is interested in conducting a study to visually differentiate "
+        f"a cherry leaf that is healthy from one that contains powdery mildew. ")
     
     version = 'v1'
     if st.checkbox("Difference between average and variability image"):
       
-      avg_parasitized = plt.imread(f"outputs/{version}/avg_var_Parasitized.png")
-      avg_uninfected = plt.imread(f"outputs/{version}/avg_var_Uninfected.png")
+      avg_parasitized = plt.imread(f"outputs/{version}/avg_var_Powdery_Mildew_Infected.png")
+      avg_uninfected = plt.imread(f"outputs/{version}/avg_var_Healthy.png")
 
       st.warning(
         f"* We notice the average and variability images did not show "
         f"patterns where we could intuitively differentiate one from another. " 
         f"However, a small difference in the colour pigment of the average images is seen for both labels.")
 
-      st.image(avg_parasitized, caption='Parasitised Cell - Average and Variability')
-      st.image(avg_uninfected, caption='Uninfected Cell - Average and Variability')
+      st.image(avg_parasitized, caption='Powdery_Mildew_Infected - Average and Variability')
+      st.image(avg_uninfected, caption='Healthy - Average and Variability')
       st.write("---")
 
-    if st.checkbox("Differences between average parasitised and average uninfected cells"):
+    if st.checkbox("Differences between average Powdery_Mildew_Infected and average Healthy"):
           diff_between_avgs = plt.imread(f"outputs/{version}/avg_diff.png")
 
           st.warning(
@@ -40,7 +40,7 @@ def page_cells_visualizer_body():
 
     if st.checkbox("Image Montage"): 
       st.write("* To refresh the montage, click on the 'Create Montage' button")
-      my_data_dir = 'inputs/malaria_dataset/cell_images'
+      my_data_dir = 'inputs/cherry-leaves/cherry-leaves'
       labels = os.listdir(my_data_dir+ '/validation')
       label_to_display = st.selectbox(label="Select label", options=labels, index=0)
       if st.button("Create Montage"):      
