@@ -1,5 +1,5 @@
-inputs/cherry-leaves_dataset/../test
-inputs/cherry-leaves_dataset/../train
+inputs/cherry-leaves/cherry-leaves/test
+inputs/cherry-leaves/cherry-leaves/train
 kaggle.json
 *.ipynb
 __pycache__/
