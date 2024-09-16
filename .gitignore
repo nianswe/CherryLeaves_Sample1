@@ -1,3 +1,10 @@
+inputs/cherry-leaves_dataset/../test
+inputs/cherry-leaves_dataset/../train
+kaggle.json
+*.ipynb
+__pycache__/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
