@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly.express as px
+# import plotly.express as px
 from tensorflow.keras.models import load_model
 from PIL import Image
 from src.data_management import load_pkl_file
@@ -24,13 +24,13 @@ def plot_predictions_probabilities(pred_proba, pred_class):
     prob_per_class = prob_per_class.round(3)
     prob_per_class['Diagnostic'] = prob_per_class.index
 
-    fig = px.bar(
-        prob_per_class,
-        x='Diagnostic',
-        y=prob_per_class['Probability'],
-        range_y=[0, 1],
-        width=600, height=300, template='seaborn')
-    st.plotly_chart(fig)
+    # fig = px.bar(
+    #    prob_per_class,
+    #    x='Diagnostic',
+    #    y=prob_per_class['Probability'],
+    #    range_y=[0, 1],
+    #    width=600, height=300, template='seaborn')
+    # st.plotly_chart(fig)
 
 
 def resize_input_image(img, version):
