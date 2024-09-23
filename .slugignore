@@ -2,4 +2,5 @@ inputs/cherry-leaves/cherry-leaves/test
 inputs/cherry-leaves/cherry-leaves/train
 kaggle.json
 *.ipynb
+*.keras
 __pycache__/
