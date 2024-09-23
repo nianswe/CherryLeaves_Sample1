@@ -1,8 +1,4 @@
-matplotlib.image
-matplotlib.pyplot
+matplotlib
 seaborn
 plotly.express
 streamlit
-scikit-learn
-tensorflow-cpu
-keras
