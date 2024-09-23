@@ -1,15 +1,7 @@
-numpy
-pandas
 matplotlib
 seaborn
 plotly.express
-
 streamlit
-
 scikit-learn
 tensorflow-cpu
 keras
-protobuf
-altair
-
-
