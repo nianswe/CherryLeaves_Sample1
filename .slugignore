@@ -1,5 +1,6 @@
 inputs/cherry-leaves/cherry-leaves/test
 inputs/cherry-leaves/cherry-leaves/train
+inputs/cherry-leaves/cherry-leaves/validation
 kaggle.json
 *.ipynb
 *.keras
