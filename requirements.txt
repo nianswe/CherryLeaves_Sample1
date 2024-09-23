@@ -2,5 +2,6 @@ plotly.express
 streamlit==1.38.0
 tensorflow-cpu==2.17.0
 keras==3.5.0
+matplotlib==3.9.2
 
 
