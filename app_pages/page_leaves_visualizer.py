@@ -12,8 +12,8 @@ import random
 def page_leaves_visualizer_body():
     st.write("### Cherry Leaves Visualizer")
     st.info(
-        f"* •	The client is interested in conducting a study to visually differentiate "
-        f"a cherry leaf that is healthy from one that contains powdery mildew. ")
+        f"* The client is interested in conducting a study to visually differentiate "
+        f"a cherry leaf that is healthy from one that contains powdery mildew. *")
     
     version = 'v1'
     if st.checkbox("Difference between average and variability image"):
@@ -30,7 +30,7 @@ def page_leaves_visualizer_body():
       st.image(avg_healthy, caption='Healthy - Average and Variability')
       st.write("---")
 
-    if st.checkbox("Differences between average Powdery_Mildew_Infected and average Healthy"):
+    if st.checkbox("Differences between average Powdery Mildew Infected and average Healthy"):
           diff_between_avgs = plt.imread(f"outputs/{version}/avg_diff.png")
 
           st.warning(
