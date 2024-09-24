@@ -43,8 +43,29 @@ def page_cherry_powdery_mildew_detector():
             # df_report = df_report.append({"Name":image.name, 'Result': pred_class },
             #                            ignore_index=True)
 
-            df_report = pd.DataFrame(columns=['Name', 'Result'])
-        
+            # df_report = pd.DataFrame(columns=['Name', 'Result'])
+
+            try:
+                # Check if df_report exists
+                if df_report is None or df_report.empty:
+                    raise ValueError("df_report does not exist or is empty")
+
+                # Ensure required columns exist
+                required_columns = ["Name", "Result"]
+                if not all(col in df_report.columns for col in required_columns):
+                    raise ValueError("DataFrame is missing required columns")
+
+                # Append the new row
+                df_report = df_report.append({"Name": image.name, 'Result': pred_class}, ignore_index=True)
+
+            except ValueError as ve:
+                print(f"Error: {ve}")
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+
+            # Optionally, reset the index if needed
+            df_report.reset_index(drop=True, inplace=True)
+
         if not df_report.empty:
             st.success("Analysis Report")
             st.table(df_report)
