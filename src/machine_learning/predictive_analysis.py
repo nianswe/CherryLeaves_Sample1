@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly.express as px
+# import plotly.express as px
 from tensorflow.keras.models import load_model
 from PIL import Image
 from src.data_management import load_pkl_file
@@ -24,13 +24,37 @@ def plot_predictions_probabilities(pred_proba, pred_class):
     prob_per_class = prob_per_class.round(3)
     prob_per_class['Diagnostic'] = prob_per_class.index
 
-    fig = px.bar(
-        prob_per_class,
-        x='Diagnostic',
-        y=prob_per_class['Probability'],
-        range_y=[0, 1],
-        width=600, height=300, template='seaborn')
-    st.plotly_chart(fig)
+    # fig = px.bar(
+    #    prob_per_class,
+    #    x='Diagnostic',
+    #    y=prob_per_class['Probability'],
+    #    range_y=[0, 1],
+    #    width=600, height=300, template='seaborn')
+    # st.plotly_chart(fig)
+
+    # Assuming prob_per_class is already defined
+
+    fig, ax = plt.subplots(figsize=(12, 6))
+
+    ax.bar(prob_per_class['Diagnostic'], prob_per_class['Probability'])
+
+    # Customize the appearance
+    ax.set_xlabel('Diagnostic')
+    ax.set_ylabel('Probability')
+    ax.set_title('Probability Distribution by Diagnostic')
+
+    # Set y-axis range
+    ax.set_ylim(0, 1)
+
+    # Add grid lines
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+
+    # Rotate x-axis labels for better readability
+    plt.xticks(rotation=45, ha='right')
+
+    # Adjust layout and display the plot
+    plt.tight_layout()
+    plt.show()
 
 
 def resize_input_image(img, version):
