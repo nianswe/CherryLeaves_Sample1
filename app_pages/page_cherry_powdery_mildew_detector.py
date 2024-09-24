@@ -12,12 +12,12 @@ from src.machine_learning.predictive_analysis import (
 
 def page_cherry_powdery_mildew_detector():
     st.info(
-        f"* •	The client is interested in conducting a study to visually differentiate a cherry leaf"
+        f"* The client is interested in conducting a study to visually differentiate a cherry leaf"
         f" that is healthy from one that contains powdery mildew. "
         )
 
     st.write(
-        f"* You can download a set of powdery mildew infected and healthyimages for live prediction. "
+        f"* You can download a set of powdery mildew infected and healthy images for live prediction. "
         f"You can download the images from [here](https://www.kaggle.com/codeinstitute/cherry-leaves)."
         )
 
