@@ -62,13 +62,8 @@ def page_cherry_powdery_mildew_detector():
                 print(f"Error: {ve}")
             except Exception as e:
                 print(f"An unexpected error occurred: {e}")
-
-            # Optionally, reset the index if needed
-            df_report.reset_index(drop=True, inplace=True)
-
+            
         if not df_report.empty:
             st.success("Analysis Report")
             st.table(df_report)
             st.markdown(download_dataframe_as_csv(df_report), unsafe_allow_html=True)
-
-
