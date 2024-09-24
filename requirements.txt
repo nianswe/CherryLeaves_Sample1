@@ -3,3 +3,4 @@ seaborn
 streamlit
 tensorflow-cpu
 joblib
+tqdm
