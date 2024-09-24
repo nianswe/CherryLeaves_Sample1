@@ -44,22 +44,53 @@ def resize_input_image(img, version):
     return my_image
 
 
+# def load_model_and_predict(my_image, version):
+#    """
+#    Load and perform ML prediction over live images
+#    """
+
+#    model = load_model(f"outputs/{version}/cherry_leaves_model.h5")
+
+#    pred_proba = model.predict(my_image)[0, 0]
+
+#    target_map = {v: k for k, v in {'infectred with': 0, 'healthy without': 1}.items()}
+#    pred_class = target_map[pred_proba > 0.5]
+#    if pred_class == target_map[0]:
+#        pred_proba = 1 - pred_proba
+
+#    st.write(
+#        f"The predictive analysis indicates the sample leaves is "
+#        f"**{pred_class.lower()}** powdery mildew.")
+
+#    return pred_proba, pred_class
+
+
+
 def load_model_and_predict(my_image, version):
     """
     Load and perform ML prediction over live images
     """
-
-    model = load_model(f"outputs/{version}/cherry_leaves_model.h5")
-
-    pred_proba = model.predict(my_image)[0, 0]
-
+    
+    # Try to load the model, catch and report any errors
+    try:
+        model = load_model(f"outputs/{version}/cherry_leaves_model.h5")
+    except Exception as e:
+        st.error(f"Error loading model: {str(e)}")
+        return None, None
+    
+    # Make prediction
+    pred_proba = model.predict(np.array([my_image]))[0, 0]
+    
+    # Define target mapping
     target_map = {v: k for k, v in {'infectred with': 0, 'healthy without': 1}.items()}
-    pred_class = target_map[pred_proba > 0.5]
-    if pred_class == target_map[0]:
-        pred_proba = 1 - pred_proba
-
-    st.write(
-        f"The predictive analysis indicates the sample leaves is "
-        f"**{pred_class.lower()}** powdery mildew.")
-
+    
+    # Determine class based on probability
+    pred_class = next(key for key, value in target_map.items() if value == 0)
+    pred_proba = 1 - pred_proba if pred_class == target_map[0] else pred_proba
+    
+    # Format output
+    confidence_level = np.round(pred_proba * 100, 2)
+    st.write(f"The predictive analysis indicates the sample leaves are **{pred_class.lower()}** powdery mildew.")
+    st.write(f"Confidence level: {confidence_level}%")
+    
     return pred_proba, pred_class
