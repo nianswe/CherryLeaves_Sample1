@@ -49,17 +49,17 @@ def load_model_and_predict(my_image, version):
     Load and perform ML prediction over live images
     """
 
-    model = load_model(f"outputs/{version}/cherry_leaves_model.keras")
+    model = load_model(f"outputs/{version}/cherry_leaves_model.h5")
 
     pred_proba = model.predict(my_image)[0, 0]
 
-    target_map = {v: k for k, v in {'powdery_mildew': 0, 'healthy': 1}.items()}
+    target_map = {v: k for k, v in {'infectred with': 0, 'healthy without': 1}.items()}
     pred_class = target_map[pred_proba > 0.5]
     if pred_class == target_map[0]:
         pred_proba = 1 - pred_proba
 
     st.write(
         f"The predictive analysis indicates the sample leaves is "
-        f"**{pred_class.lower()}** with powdery mildew.")
+        f"**{pred_class.lower()}** powdery mildew.")
 
     return pred_proba, pred_class
