@@ -43,6 +43,7 @@ def page_cherry_powdery_mildew_detector():
             # df_report = df_report.append({"Name":image.name, 'Result': pred_class },
             #                            ignore_index=True)
             
+            df_report.set_index(None, inplace=True)
             df_report.loc[len(df_report)] = {"Name": image.name, "Result": pred_class}
 
             # df_report = pd.DataFrame(columns=['Name', 'Result'])
