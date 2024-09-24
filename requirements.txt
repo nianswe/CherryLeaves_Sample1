@@ -2,3 +2,4 @@ seaborn
 streamlit
 tensorflow-cpu
 joblib
+plotly.express
