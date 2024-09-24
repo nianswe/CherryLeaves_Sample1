@@ -15,10 +15,10 @@ def page_summary_body():
         f"This mycelial layer may quickly spread to cover all of the leaves."
         f"The lower leaves are the most affected, but the mildew can appear on any above-ground part of the plant."
         f"As the disease progresses, the spots get larger and denser as large numbers of asexual spores are formed,\n"
-        f"and the mildew may spread up and down the length of the plant.*"
+        f"and the mildew may spread up and down the length of the plant.\n\n"
         f"**Project Dataset**\n"
         f"* The available dataset contains 4208 images taken from "
-        f"infected and healthy leaves of cherry trees. *")
+        f"infected and healthy leaves of cherry trees.")
         
         
     st.write(
