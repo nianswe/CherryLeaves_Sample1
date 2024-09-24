@@ -3,4 +3,5 @@ inputs/cherry-leaves/cherry-leaves/train
 kaggle.json
 *.ipynb
 *.keras
+*.h5
 __pycache__/

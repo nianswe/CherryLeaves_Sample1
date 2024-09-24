@@ -18,7 +18,7 @@ def page_leaves_visualizer_body():
     version = 'v1'
     if st.checkbox("Difference between average and variability image"):
       
-      avg_parasitized = plt.imread(f"outputs/{version}/avg_var_Powdery_Mildew_Infected.png")
+      avg_parasitized = plt.imread(f"outputs/{version}/avg_var_Powdery_Mildew.png")
       avg_uninfected = plt.imread(f"outputs/{version}/avg_var_Healthy.png")
 
       st.warning(
